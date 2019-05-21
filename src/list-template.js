@@ -1,7 +1,9 @@
-function listTemplate() {
+import todo from "./data";
+
+function listTemplate(todo) {
     return /*html*/ `
         <li class="list-item">
-            <p><input class="checkbox" type="checkbox">Pack my stuff</p>
+            <p><input class="checkbox" type="checkbox">${todo.task}</p>
         </li>
     `;
 }
