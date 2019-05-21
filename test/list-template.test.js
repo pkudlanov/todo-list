@@ -23,3 +23,23 @@ test('list template for false', (assert) => {
     // assert
     assert.htmlEqual(html, expected);
 });
+
+test('list template for true', (assert) => {
+    // arrange
+    const todo = {
+        task: 'Pack my stuff',
+        completed: true
+    };
+
+    const expected = /*html*/`
+        <li class="list-item">
+            <p><input class="checkbox" type="checkbox" checked>Pack my stuff</p>
+        </li>
+    `;
+
+    // act
+    const html = listTemplate(todo);
+
+    // assert
+    assert.htmlEqual(html, expected);
+});
