@@ -9,9 +9,13 @@ class TodoItem extends Component {
     renderTemplate() {
         const todo = this.props.todo;
 
+        let completed = '';
+        if(todo.completed){
+            completed = 'checked';
+        }
         return /*html*/ `
             <li class="list-item">
-                <p><input class="checkbox" type="checkbox"${todo.completed}>${todo.task}</p>
+                <p><input class="checkbox" type="checkbox"${completed}>${todo.task}</p>
             </li>
         `;
     }
