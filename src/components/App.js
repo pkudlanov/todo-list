@@ -1,11 +1,17 @@
 import Component from './Component.js';
 import todos from '../../data/todo-list.js';
+import TodoList from './TodoList.js';
 
 class App extends Component {
     render() {
         const dom = this.renderDOM();
 
-        //const main = dom.querySelector('main');
+        const main = dom.querySelector('main');
+
+        const todoList = new TodoList({});
+
+        const todoListDOM = todoList.render();
+        main.appendChild(todoListDOM);
 
         return dom;
     }
