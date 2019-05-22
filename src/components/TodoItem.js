@@ -11,7 +11,7 @@ class TodoItem extends Component {
 
         let completed = '';
         if(todo.completed){
-            completed = 'checked';
+            completed = ' checked';
         }
         return /*html*/ `
             <li class="list-item">
