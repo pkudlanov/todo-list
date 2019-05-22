@@ -12,7 +12,8 @@ class Component {
     renderDOM() {
         const html = this.renderTemplate();
         const dom = htmlToDOM(html);
-        this.rooElement = dom;
+        // hey it works without it ;) at least for now
+        // this.rootElement = dom;
         return dom;
     }
 }
