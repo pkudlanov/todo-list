@@ -1,5 +1,5 @@
 import Component from './Component.js';
-import todos from '../../data/todo-list.js';
+//import todos from '../../data/todo-list.js';
 import TodoList from './TodoList.js';
 
 class App extends Component {
@@ -19,7 +19,7 @@ class App extends Component {
         return /*html*/ `
             <div>
                 <main>
-                    <h2>There are ${todos.length} things that need attention!!</h2>
+                    <h2>Things Todo</h2>
                 </main>
             </div>
         `;
