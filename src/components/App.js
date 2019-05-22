@@ -1,5 +1,5 @@
 import Component from './Component.js';
-//import todos from '../../data/todo-list.js';
+import todos from '../../data/todo-list.js';
 import TodoList from './TodoList.js';
 
 class App extends Component {
@@ -8,7 +8,7 @@ class App extends Component {
 
         const main = dom.querySelector('main');
 
-        const todoList = new TodoList({});
+        const todoList = new TodoList({ todos });
 
         const todoListDOM = todoList.render();
         main.appendChild(todoListDOM);
