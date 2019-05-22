@@ -1,4 +1,4 @@
-const todo = [
+const todos = [
     {
         task: 'Pack my stuff',
         completed: false
@@ -25,4 +25,4 @@ const todo = [
     },
 ];
 
-export default todo;
+export default todos;
