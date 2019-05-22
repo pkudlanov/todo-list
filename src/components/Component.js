@@ -12,9 +12,17 @@ class Component {
     renderDOM() {
         const html = this.renderTemplate();
         const dom = htmlToDOM(html);
-        // hey it works without it ;) at least for now
-        // this.rootElement = dom;
+        this.rootElement = dom;
         return dom;
+    }
+
+    update(props) {
+        Object.keys(props).forEach(key => {
+            this.props[key] = props[key];
+        });
+        const oldRoot = this.rootElement;
+        const newDOM = this.render();
+        oldRoot.replaceWith(newDOM);
     }
 }
 
