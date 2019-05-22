@@ -6,8 +6,10 @@ class TodoList extends Component {
         const list = this.renderDOM();
         const todos = this.props.todos;
 
+        const onRemove = this.props.onRemove;
+
         todos.forEach(todo => {
-            const todoItem = new TodoItem({ todo });
+            const todoItem = new TodoItem({ todo, onRemove });
             const todoItemDOM = todoItem.render();
             list.appendChild(todoItemDOM);
         });
@@ -18,7 +20,6 @@ class TodoList extends Component {
     renderTemplate() {
         return /*html*/ `
             <ol id="todos">
-                <h3>I have things todo.</h3>
             </ol>
         `;
     }

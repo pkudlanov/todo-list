@@ -2,12 +2,17 @@ import Component from './Component.js';
 import todos from '../../data/todo-list.js';
 import TodoList from './TodoList.js';
 import AddTodo from './AddTodo.js';
+import Header from './Header.js';
 
 class App extends Component {
     render() {
         const dom = this.renderDOM();
 
+        const header = new Header();
+        const headerDOM = header.render();
+
         const main = dom.querySelector('main');
+        dom.insertBefore(headerDOM, main);
 
         const addTodo = new AddTodo({
             onAdd: (newTodo) => {
@@ -19,7 +24,14 @@ class App extends Component {
         const addTodoDOM = addTodo.render();
         main.appendChild(addTodoDOM);
 
-        const todoList = new TodoList({ todos });
+        const todoList = new TodoList({
+            todos,
+            onRemove: (todoToRemove) => {
+                const index = todos.indexOf(todoToRemove);
+                todos.splice(index, 1);
+                todoList.update({ todos });
+            }
+        });
 
         const todoListDOM = todoList.render();
         main.appendChild(todoListDOM);
@@ -30,7 +42,6 @@ class App extends Component {
         return /*html*/ `
             <div>
                 <main>
-                    <h2>Things Todo</h2>
                 </main>
             </div>
         `;

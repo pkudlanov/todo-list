@@ -3,6 +3,12 @@ import Component from './Component.js';
 class TodoItem extends Component {
     render() {
         const listItem = this.renderDOM();
+        const todo = this.props.todo;
+        const onRemove = this.props.onRemove;
+        const removeButton = listItem.querySelector('button');
+        removeButton.addEventListener('click', () => {
+            onRemove(todo);
+        });
         return listItem;
     }
 
@@ -15,7 +21,10 @@ class TodoItem extends Component {
         }
         return /*html*/ `
             <li class="list-item">
-                <p><input class="checkbox" type="checkbox"${completed}>${todo.task}</p>
+                <p>
+                    <input class="checkbox" type="checkbox"${completed}>${todo.task}
+                    <button class="remove-button">X</button>
+                </p>
             </li>
         `;
     }
