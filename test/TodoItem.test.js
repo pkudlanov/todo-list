@@ -13,7 +13,10 @@ test('list item for false', (assert) => {
 
     const expected = /*html*/`
         <li class="list-item">
-            <p><input class="checkbox" type="checkbox">Pack my stuff</p>
+            <p>
+                <input class="checkbox" type="checkbox">Pack my stuff
+                <button class="remove-button">X</button>
+            </p>
         </li>
     `;
 

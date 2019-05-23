@@ -16,6 +16,8 @@ class AddTodo extends Component {
             };
 
             onAdd(newTodo);
+
+            form.reset();
         });
 
         return form;
@@ -23,7 +25,7 @@ class AddTodo extends Component {
     renderTemplate() {
         return /*html*/ `
             <form class="add-todo">
-                <label for="todo">Task needing attention: <input type="text" name="todo"></label>
+                <label for="todo">Task needing attention: <input type="text" name="todo" autofocus="autofocus" placeholder="Task" required></label>
                 <button class="submit-button">Add Task</button>
             </form>
         `;
