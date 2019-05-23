@@ -24,7 +24,7 @@ const todos = [
 ];
 
 test('filters on task text', assert => {
-    const filter = { text: 'something' };
+    const filter = { text: 'house' };
 
     const filtered = filterTodos(todos, filter);
 
