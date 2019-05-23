@@ -1,0 +1,30 @@
+body {
+    max-width: 550px;
+    margin: auto;
+}
+
+header {
+    text-align: center;
+}
+
+.checkbox {
+    margin-right: 10px;
+}
+
+.submit-button {
+    margin-left: 10px;
+}
+
+.remove-button {
+    background-color: rgb(223, 223, 223);
+    color: red;
+    cursor: pointer;
+    border-radius: 100%;
+    margin-left: 10px;
+    position: absolute;
+    right: 400px;
+}
+
+.remove-button:hover {
+    background-color: rgb(255, 195, 195);
+}
