@@ -33,3 +33,14 @@ test('filters on task text', assert => {
         completed: false
     }]);
 });
+
+test('filters on task text, case insensitive', assert => {
+    const filter = { text: 'HoUSE' };
+    
+    const filtered = filterTodos(todos, filter);
+    
+    assert.deepEqual(filtered, [{
+        task: 'The house is the second on the left',
+        completed: false
+    }]);
+});
