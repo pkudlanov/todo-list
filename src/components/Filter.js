@@ -7,12 +7,8 @@ class Filter extends Component {
 
         fieldset.addEventListener('input', () => {
             const textInput = fieldset.elements['text-input'].value;
-            //const input = fieldset.elements['completeOrNot'].value;
             const inputRadio = dom.querySelector('input[name="completeOrNot"]:checked').value;
-            console.log(textInput, 'text input');
-            console.log(inputRadio, 'radio value');
-            
-            
+
             this.props.onFilter({
                 text: textInput,
                 condition: parseInt(inputRadio)
