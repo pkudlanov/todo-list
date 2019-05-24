@@ -19,8 +19,7 @@ class TodoList extends Component {
 
     renderTemplate() {
         return /*html*/ `
-            <ol id="todos">
-            </ol>
+            <ol id="todos"></ol>
         `;
     }
 }

@@ -4,6 +4,7 @@ import TodoList from './TodoList.js';
 import AddTodo from './AddTodo.js';
 import Header from './Header.js';
 import Filter from './Filter.js';
+import filterTodos from '../filter-todos.js';
 
 class App extends Component {
     render() {
@@ -25,10 +26,13 @@ class App extends Component {
         const addTodoDOM = addTodo.render();
         main.appendChild(addTodoDOM);
 
-        const filter = new Filter({
-            
+        const purifier = new Filter({
+            onFilter: purifier => {
+                const filtered = filterTodos(todos, purifier);
+                todoList.update({ todos: filtered });
+            }
         });
-        const filterToDOM = filter.render();
+        const filterToDOM = purifier.render();
         main.appendChild(filterToDOM);
 
         const todoList = new TodoList({

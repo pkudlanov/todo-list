@@ -97,3 +97,14 @@ test('matches text and condition completed = false', assert => {
         completed: false
     }]);
 });
+
+test('No text, and condition all returns all', assert => {
+    const filter = {
+        text: '',
+        condition: 1
+    };
+
+    const filtered = filterTodos(todos, filter);
+
+    assert.deepEqual(filtered, todos);
+});
