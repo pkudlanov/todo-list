@@ -24,7 +24,10 @@ const todos = [
 ];
 
 test('filters on task text', assert => {
-    const filter = { text: 'house' };
+    const filter = {
+        text: 'house',
+        condition: 1
+    };
 
     const filtered = filterTodos(todos, filter);
 
@@ -35,7 +38,10 @@ test('filters on task text', assert => {
 });
 
 test('filters on task text, case insensitive', assert => {
-    const filter = { text: 'HoUSE' };
+    const filter = {
+        text: 'HoUSE',
+        condition: 1
+    };
     
     const filtered = filterTodos(todos, filter);
     
