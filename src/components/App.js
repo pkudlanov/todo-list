@@ -1,10 +1,12 @@
 import Component from './Component.js';
-import todos from '../../data/todo-list.js';
 import TodoList from './TodoList.js';
 import AddTodo from './AddTodo.js';
 import Header from './Header.js';
 import Filter from './Filter.js';
 import filterTodos from '../filter-todos.js';
+import todoApi from '../todo-api.js';
+
+const todos = todoApi.getAll();
 
 class App extends Component {
     render() {
@@ -20,6 +22,7 @@ class App extends Component {
             onAdd: (newTodo) => {
                 todos.unshift(newTodo);
                 todoList.update({ todos });
+                todoApi.saveAll(todos);
             }
         });
 
@@ -41,16 +44,13 @@ class App extends Component {
                 const index = todos.indexOf(todoToRemove);
                 todos.splice(index, 1);
                 todoList.update({ todos });
+                todoApi.saveAll(todos);
+                purifier.update();
             },
             onUpdate: (todoToUpdate) => {
                 todoToUpdate.completed = !todoToUpdate.completed;
                 todoList.update({ todos });
-            },
-            onDone: () => {
-
-            },
-            onRemove: () => {
-
+                todoApi.saveAll(todos);
             }
         });
 

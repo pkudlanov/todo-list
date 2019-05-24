@@ -11,11 +11,3 @@ function filterTodos(todos, purifier) {
 }
 
 export default filterTodos;
-
-// //tasks
-// task: 'jakl;sdfjkl',
-// completed: false //or true
-
-// purifier
-// text: 'ajkld;fs',
-// condition: 1 // 1:all, 0:completed, -1:notDone
