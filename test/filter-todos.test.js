@@ -46,7 +46,10 @@ test('filters on task text, case insensitive', assert => {
 });
 
 test('return all if no filter', assert => {
-    const filter = { text: '' };
+    const filter = {
+        text: '',
+        condition: 1
+    };
 
     const filtered = filterTodos(todos, filter);
 
