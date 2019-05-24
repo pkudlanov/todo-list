@@ -4,10 +4,18 @@ function filterTodos(todos, purifier) {
         const todoTask = todo.task.toLowerCase();
 
         const hasText = !textPurifier || todoTask.includes(textPurifier);
-        const hasCondition = !purifier.condition || todo.condition === purifier.condition;
+        const hasCondition = purifier.condition > 0;
         
         return hasText && hasCondition;
     });
 }
 
 export default filterTodos;
+
+// //tasks
+// task: 'jakl;sdfjkl',
+// completed: false //or true
+
+// purifier
+// text: 'ajkld;fs',
+// condition: 1 // 1:all, 0:completed, -1:notDone
