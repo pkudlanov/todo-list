@@ -44,3 +44,11 @@ test('filters on task text, case insensitive', assert => {
         completed: false
     }]);
 });
+
+test('return all if no filter', assert => {
+    const filter = { text: '' };
+
+    const filtered = filterTodos(todos, filter);
+
+    assert.deepEqual(filtered, todos);
+});
