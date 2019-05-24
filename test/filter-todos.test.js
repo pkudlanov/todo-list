@@ -19,7 +19,7 @@ const todos = [
     },
     {
         task: 'The house is the second on the left',
-        completed: false
+        completed: true
     }
 ];
 
@@ -33,7 +33,7 @@ test('filters on task text', assert => {
 
     assert.deepEqual(filtered, [{
         task: 'The house is the second on the left',
-        completed: false
+        completed: true
     }]);
 });
 
@@ -47,7 +47,7 @@ test('filters on task text, case insensitive', assert => {
     
     assert.deepEqual(filtered, [{
         task: 'The house is the second on the left',
-        completed: false
+        completed: true
     }]);
 });
 
@@ -60,4 +60,40 @@ test('return all if no filter', assert => {
     const filtered = filterTodos(todos, filter);
 
     assert.deepEqual(filtered, todos);
+});
+
+test('matches text and condition completed = true', assert => {
+    const filter = {
+        text: 'the',
+        condition: 0
+    };
+
+    const filtered = filterTodos(todos, filter);
+
+    assert.deepEqual(filtered, [{
+        task: 'The house is the second on the left',
+        completed: true
+    }]);
+});
+
+test('matches text and condition completed = false', assert => {
+    const filter = {
+        text: 'the',
+        condition: -1
+    };
+
+    const filtered = filterTodos(todos, filter);
+
+    assert.deepEqual(filtered, [{
+        task: 'Go to the end',
+        completed: false
+    },
+    {
+        task: 'Make another left turn',
+        completed: false
+    },
+    {
+        task: 'Then the first right turn',
+        completed: false
+    }]);
 });

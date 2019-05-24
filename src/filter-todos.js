@@ -4,7 +4,7 @@ function filterTodos(todos, purifier) {
         const todoTask = todo.task.toLowerCase();
 
         const hasText = !textPurifier || todoTask.includes(textPurifier);
-        const hasCondition = purifier.condition > 0;
+        const hasCondition = purifier.condition > 0 || !purifier.condition === todo.completed;
         
         return hasText && hasCondition;
     });
