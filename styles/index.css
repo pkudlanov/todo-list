@@ -20,9 +20,7 @@ header {
     color: red;
     cursor: pointer;
     border-radius: 100%;
-    margin-left: 10px;
-    position: absolute;
-    right: 300px;
+    float: right;
 }
 
 .remove-button:hover {
